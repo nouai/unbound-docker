@@ -99,6 +99,7 @@ if [ ! -d "$SDK" ]; then
 
     tar --use-compress-program=unzstd \
         -xf "$SDK_NAME.tar.zst"
+    rm "$SDK_NAME.tar.zst"
 fi
 
 test -x "$CC"
@@ -148,6 +149,7 @@ fi
 rm -rf "openssl-$OPENSSL_VERSION"
 
 tar xf "openssl-$OPENSSL_VERSION.tar.gz"
+rm "openssl-$OPENSSL_VERSION.tar.gz"
 
 cd "openssl-$OPENSSL_VERSION"
 
@@ -197,6 +199,9 @@ make -j"$(nproc)"
 
 make install_sw
 
+cd ..
+rm -rf "openssl-$OPENSSL_VERSION"
+
 echo
 echo "OpenSSL libraries:"
 
@@ -238,6 +243,7 @@ fi
 rm -rf "nghttp2-$NGHTTP2_VERSION"
 
 tar xf "nghttp2-$NGHTTP2_VERSION.tar.gz"
+rm "nghttp2-$NGHTTP2_VERSION.tar.gz"
 
 cd "nghttp2-$NGHTTP2_VERSION"
 
@@ -263,6 +269,9 @@ make -j"$(nproc)"
 
 make install
 
+cd ..
+rm -rf "nghttp2-$NGHTTP2_VERSION"
+
 echo
 echo "nghttp2:"
 ls -lh "$OPENSSL_PREFIX/lib/libnghttp2.a"
@@ -286,6 +295,7 @@ fi
 rm -rf "nghttp3-$NGHTTP3_VERSION"
 
 tar xf "nghttp3-$NGHTTP3_VERSION.tar.gz"
+rm "nghttp3-$NGHTTP3_VERSION.tar.gz"
 
 cd "nghttp3-$NGHTTP3_VERSION"
 
@@ -305,6 +315,9 @@ cd "nghttp3-$NGHTTP3_VERSION"
 make -j"$(nproc)"
 
 make install
+
+cd ..
+rm -rf "nghttp3-$NGHTTP3_VERSION"
 
 echo
 echo "nghttp3:"
@@ -329,6 +342,7 @@ fi
 rm -rf "ngtcp2-$NGTCP2_VERSION"
 
 tar xf "ngtcp2-$NGTCP2_VERSION.tar.gz"
+rm "ngtcp2-$NGTCP2_VERSION.tar.gz"
 
 cd "ngtcp2-$NGTCP2_VERSION"
 
@@ -354,6 +368,9 @@ test -f "$OPENSSL_PREFIX/lib/libnghttp3.a"
 make -j"$(nproc)"
 
 make install
+
+cd ..
+rm -rf "ngtcp2-$NGTCP2_VERSION"
 
 echo
 echo "ngtcp2 libraries:"
@@ -387,6 +404,7 @@ fi
 rm -rf "expat-$EXPAT_VERSION"
 
 tar xf "expat-$EXPAT_VERSION.tar.gz"
+rm "expat-$EXPAT_VERSION.tar.gz"
 
 cd "expat-$EXPAT_VERSION"
 
@@ -405,6 +423,9 @@ cd "expat-$EXPAT_VERSION"
 make -j"$(nproc)"
 
 make install
+
+cd ..
+rm -rf "expat-$EXPAT_VERSION"
 
 echo
 echo "expat:"
@@ -484,6 +505,7 @@ fi
 rm -rf "unbound-$UNBOUND_VERSION"
 
 tar xf "unbound-$UNBOUND_VERSION.tar.gz"
+rm "unbound-$UNBOUND_VERSION.tar.gz"
 
 cd "unbound-$UNBOUND_VERSION"
 
@@ -717,6 +739,9 @@ cp unbound "$FINAL"
 
 mkdir -p /output
 cp "$FINAL" "/output/unbound-$UNBOUND_VERSION-aarch64-static"
+
+cd ..
+rm -rf "unbound-$UNBOUND_VERSION"
 
 ###############################################################################
 # Final report

@@ -8,7 +8,7 @@ services:
     volumes:
       # All compilation happens in Docker's volume.
       # This avoids userns-remap permission problems.
-      - unbound-work:/workspace
+      - work:/workspace
 
       # Only the final artifacts are exposed to the host.
       - ./output:/output
@@ -23,4 +23,4 @@ services:
       - /build.sh
 
 volumes:
-  unbound-work:
+  work:
