@@ -47,7 +47,7 @@ cd unbound-docker
 5. Build the image and run the container
 ```
 docker compose build
-docker compose run
+docker compose up
 ```
 6. Copy `unbound-1.25.2-aarch64-static` to the target device (Comfast CF-RW632AX)
 ```
