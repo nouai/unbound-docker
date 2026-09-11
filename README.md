@@ -37,6 +37,7 @@
 ```
 ssh root@192.168.1.1
 apk add unbound-daemon
+exit
 ```
 4. Clone the repository
 ```
