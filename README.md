@@ -41,7 +41,7 @@ exit
 ```
 4. Clone the repository
 ```
-git clone git@github.com:nouai/unbound-docker.git
+git clone https://github.com/nouai/unbound-docker.git
 cd unbound-docker
 ```
 5. Build the image and run the container
