@@ -43,6 +43,7 @@ exit
 ```
 git clone https://github.com/nouai/unbound-docker.git
 cd unbound-docker
+chmod 777 output
 ```
 5. Build the image and run the container
 ```
